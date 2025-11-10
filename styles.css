@@ -1,0 +1,224 @@
+/* СБРОС И БАЗА */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #5d4037; /* тёмно-кофейный */
+  --color-accent: #8d6e63;  /* светлее */
+  --color-text: #333;
+  --color-bg: #fffdfb;      /* тёплый белый */
+  --color-light: #f5f0eb;
+  --font-main: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ШАПКА С КОНТАКТАМИ */
+.top-bar {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.phone {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.phone:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #d7ccc8;
+  color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: #bcaaa4;
+}
+
+/* ГЕРОЙ-СЕКЦИЯ */
+.hero {
+  padding: 60px 0;
+  text-align: center;
+  background-color: white;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+.btn-large:hover {
+  background-color: #4e342e;
+}
+
+.btn-outline {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 12px 24px;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-light);
+}
+
+/* СЕКЦИИ */
+section {
+  padding: 60px 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: var(--color-primary);
+}
+
+/* УСЛУГИ */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.service-col h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: var(--color-accent);
+}
+
+.service-col ul {
+  list-style: none;
+}
+
+.service-col li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+/* ПОЧЕМУ МЫ */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature h3 {
+  margin: 16px 0;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+/* КОНТАКТЫ */
+.contact {
+  background-color: var(--color-light);
+  text-align: center;
+}
+
+.contact p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.contact a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* ФУТЕР */
+.footer {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+/* ПЛАВНАЯ ПРОКРУТКА */
+html {
+  scroll-behavior: smooth;
+}
+
+/* УБИРАЕМ ПОДЧЕРКИ ДЛЯ ССЫЛОК В ТЕЛЕФОНЕ/EMAIL */
+a {
+  color: inherit;
+}
