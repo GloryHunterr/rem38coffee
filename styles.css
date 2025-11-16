@@ -1,4 +1,9 @@
-/* СБРОС И БАЗА */
+
+  body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+    
+                /* === СБРОС И ПЕРЕМЕННЫЕ === */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -6,92 +11,85 @@
 }
 
 :root {
-  --color-primary: #5d4037; /* тёмно-кофейный */
-  --color-accent: #8d6e63;  /* светлее */
-  --color-text: #333;
-  --color-bg: #fffdfb;      /* тёплый белый */
-  --color-light: #f5f0eb;
-  --font-main: 'Inter', system-ui, sans-serif;
+  --primary-color: #2d2d2d;
+  --secondary-color: #ff9900;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --white: #ffffff;
+  --light-gray: #333333;
+  --border-color: #444444;
+
+  --hover-orange: #ff8000;
+  --gradient-dark: #333333;
+  --subtitle-gray: #cccccc;
+  --desc-light: #dddddd;
+
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 body {
   font-family: var(--font-main);
   line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--text-color);
+  background-color: var(--background-color);
   font-size: 16px;
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ШАПКА С КОНТАКТАМИ */
-.top-bar {
-  background-color: var(--color-primary);
-  color: white;
-  padding: 10px 0;
-  font-size: 14px;
+/* === ЛОГО === */
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.top-bar .container {
+.logo {
+  height: 60px;
+  filter: drop-shadow(0 0 5px rgba(255, 153, 0, 0.5));
+}
+
+/* === ШАПКА С ФОНОМ === */
+.hero-header {
+  background: url('https://placehold.co/1920x600/2d2d2d/ffffff?text=DeLonghi+Cappuccino') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  min-height: 600px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
-.phone {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.phone:hover {
-  text-decoration: underline;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.btn-primary {
-  background-color: #d7ccc8;
-  color: var(--color-primary);
-}
-
-.btn-primary:hover {
-  background-color: #bcaaa4;
-}
-
-/* ГЕРОЙ-СЕКЦИЯ */
-.hero {
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+  width: 100%;
   padding: 60px 0;
-  text-align: center;
-  background-color: white;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-  color: var(--color-primary);
-  line-height: 1.3;
+.hero-header .container {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  line-height: 1.25;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 30px;
-  color: #555;
+  color: var(--subtitle-gray);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -104,40 +102,119 @@ body {
   flex-wrap: wrap;
 }
 
-.btn-large {
-  background-color: var(--color-primary);
-  color: white;
+/* === КНОПКИ === */
+.btn {
+  display: inline-block;
   padding: 14px 28px;
-  font-size: 1.1rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-large {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
 }
 
 .btn-large:hover {
-  background-color: #4e342e;
+  background-color: var(--hover-orange);
+  transform: translateY(-2px);
 }
 
 .btn-outline {
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
-  padding: 12px 24px;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .btn-outline:hover {
-  background-color: var(--color-light);
+  background-color: rgba(255, 153, 0, 0.1);
 }
 
-/* СЕКЦИИ */
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-orange);
+}
+
+/* === ОБЩИЕ СЕКЦИИ === */
 section {
   padding: 60px 0;
 }
 
 h2 {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 40px;
-  color: var(--color-primary);
+  color: var(--secondary-color);
+  font-family: var(--font-heading);
 }
 
-/* УСЛУГИ */
+   /* <!-- БРЕНДЫ --> */
+
+.brands {
+  background-color: var(--primary-color);
+  padding: 60px 0;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.brand-item {
+  padding: 3px;
+  border: 1px solid var(--border-color);
+  aspect-ratio: 1/1;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.brand-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary-color);
+  box-shadow: 0 6px 15px rgba(255, 153, 0, 0.2);
+}
+
+.brand-item img {
+  max-width: 80%;
+  max-height: 80%;
+  width: 200px;
+  height: 200px;
+  place-items: center
+  
+}
+
+@media (max-width: 768px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === УСЛУГИ === */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -150,10 +227,38 @@ h2 {
   }
 }
 
+.service-col {
+  background: var(--light-gray);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
 .service-col h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  color: var(--color-accent);
+  color: var(--secondary-color);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.brand-logo {
+  height: 40px;
+  border-radius: 4px;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.brand-logo:hover {
+  transform: scale(1.1);
 }
 
 .service-col ul {
@@ -161,15 +266,20 @@ h2 {
 }
 
 .service-col li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #eee;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--desc-light);
 }
 
-/* ПОЧЕМУ МЫ */
+.service-col li:last-child {
+  border-bottom: none;
+}
+
+/* === ПОЧЕМУ МЫ === */
 .features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 25px;
 }
 
 @media (min-width: 768px) {
@@ -178,47 +288,141 @@ h2 {
   }
 }
 
-.feature h3 {
-  margin: 16px 0;
-  font-size: 1.2rem;
-  color: var(--color-primary);
-}
-
-/* КОНТАКТЫ */
-.contact {
-  background-color: var(--color-light);
+.feature {
+  background: var(--light-gray);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   text-align: center;
 }
 
-.contact p {
-  margin: 10px 0;
-  font-size: 1.1rem;
+.feature h3 {
+  margin: 16px 0;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  font-family: var(--font-heading);
 }
 
-.contact a {
-  color: var(--color-primary);
+.feature p {
+  color: var(--desc-light);
+}
+
+/* === ФОРМА === */
+.contact {
+  background-color: var(--primary-color);
+  padding: 60px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-family: var(--font-main);
+  background: var(--light-gray);
+  color: var(--text-color);
+  transition: border 0.2s, background 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  background: #444444;
+}
+
+.form-privacy {
+  font-size: 0.85rem;
+  color: var(--desc-light);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.alert-success {
+  display: none;
+  background: #4CAF50;
+  color: white;
+  padding: 16px;
+  border-radius: var(--radius);
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #45a049;
+}
+
+.contact-fallback {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.95em;
+  color: var(--desc-light);
+}
+
+.contact-fallback a {
+  color: var(--secondary-color);
   text-decoration: none;
 }
 
-.contact a:hover {
+.contact-fallback a:hover {
   text-decoration: underline;
 }
 
-/* ФУТЕР */
+/* === ФУТЕР === */
 .footer {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   text-align: center;
-  padding: 20px 0;
+  padding: 25px 0;
   font-size: 14px;
+  border-top: 1px solid var(--border-color);
 }
 
-/* ПЛАВНАЯ ПРОКРУТКА */
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 600px) {
+  .hero-header {
+    min-height: 400px;
+  }
+
+  .hero-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    max-width: 300px;
+  }
+
+  .service-col h3 {
+    font-size: 1.3rem;
+  }
+
+  .brand-logo {
+    height: 30px;
+  }
+}
+
+/* === ПЛАВНАЯ ПРОКРУТКА === */
 html {
   scroll-behavior: smooth;
 }
 
-/* УБИРАЕМ ПОДЧЕРКИ ДЛЯ ССЫЛОК В ТЕЛЕФОНЕ/EMAIL */
-a {
-  color: inherit;
-}
